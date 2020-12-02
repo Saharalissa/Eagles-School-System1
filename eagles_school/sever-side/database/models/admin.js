@@ -39,7 +39,15 @@ module.exports= {
         db.query(queryStr,params,function(err,results){
             callback(err,results)
         });
+    },
+
+    updateOneadmin: (params, callback) => {
+        var queryStr = `update students set adminName = ?, adminpassword = ? where adminId = ?`;
+        db.query(queryStr, params, function(err, results) {
+            callback(err, results)
+        });
     }
+
 
 
 };

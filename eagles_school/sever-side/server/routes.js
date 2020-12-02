@@ -12,12 +12,17 @@ console.log('router');
 router.get('/getOne/:id', controller.students.getOne);
 router.post('/create/student', controller.students.createstudent);
 router.delete('/deleteOne/:id', controller.students.deleteOne);
+router.put('/updateOne/:id', controller.students.updateOne);
+
 
 /*Admin table routes*/
 router.get('/getAlladmin', controller.admin.getAlladmin);
 router.get('/getOneadmin/:id', controller.admin.getOneadmin);
 router.post('/create/admin', controller.admin.createadmin);
 router.delete('/deleteOneadmin/:id', controller.admin.deleteOneadmin);
+router.put('/updateOneadmin/:id', controller.students.updateOne);
+
+
 
 //mark table routes
 router.get('/getMarks/:id' , controller.marks.getMarks)

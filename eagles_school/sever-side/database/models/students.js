@@ -31,6 +31,13 @@ module.exports= {
         db.query(queryStr,params,function(err,results){
             callback(err,results)
         });
+    },
+
+    updateOne: (params, callback) => {
+        var queryStr = `update students set studentName = ?, studentpassword = ? where studentId = ?`;
+        db.query(queryStr, params, function(err, results) {
+            callback(err, results)
+        });
     }
 
     

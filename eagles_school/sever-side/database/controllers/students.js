@@ -58,12 +58,20 @@ module.exports = {
 
       },
 
+      updateOne: function(req, res){
+        var params = [req.body.studentId,req.body.studentName, req.body.studentpassword];
+        models.updateOne(params, function(err,results) {
+          if (err) {console.log("error updateone at students controller",err)}
+          console.log(req.body.studentId)
+          res.send('student updated')
+        });
+
        
 } 
      
    
  
-
+};
 
 
   

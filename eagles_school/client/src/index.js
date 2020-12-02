@@ -19,6 +19,7 @@ function App()  {
          <Route path ='/create/student'  component ={CreateStudent}></Route>
          <Route path ='/create/admin'  component ={CreateAdmin}></Route>
          <Route path ='/crud/marks'  component ={MarksForm}></Route>
+       
 
         </div>
 

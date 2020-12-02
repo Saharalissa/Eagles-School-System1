@@ -7,17 +7,12 @@ const app = express();
 app.use(bodyParser.json())
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/public')));
 
 app.use("/",router.router);
 
 app.get('/',function(req,res){
     res.send('Home Page')
-});
-
-
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'public'));
 });
 
 

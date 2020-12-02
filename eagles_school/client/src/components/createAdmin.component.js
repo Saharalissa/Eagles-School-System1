@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import axios from 'axios';
 import AdminList from './adminList.component'
 
+
 //creating admin component
 export default class CreateAdmin extends Component {
     constructor(props){
@@ -17,6 +18,8 @@ export default class CreateAdmin extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
     }
+
+   
     
     //function to handle alll input fields
     changeFormHandle(e){
@@ -25,7 +28,8 @@ export default class CreateAdmin extends Component {
         const name = target.name;
         //[name] will change according to eachh input depending on each name of input
         this.setState({
-         [name] : value
+         [name] : value,
+         admins :[]
         })
     }
 
@@ -42,7 +46,29 @@ export default class CreateAdmin extends Component {
           axios.post('/create/admin',users)
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
+
+          this.retrieveData();
+
+          //for take the user to the home after submite the form
+    //we need to uncomment this line
+    // window.location = '/';
     }
+    
+    // retrieveData() {
+    //     axios.get('/getAlladmin')
+    //     .then(response => {
+    //       this.setState({ admins: response.data })
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     })
+
+    //   }
+    //   componentDidMount() {
+    //     this.retrieveData();
+       
+    //     }
+
     render(){
         return (
         <div>

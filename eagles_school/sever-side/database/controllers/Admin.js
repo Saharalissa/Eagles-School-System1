@@ -54,5 +54,16 @@ module.exports = {
 
       },
 
+      updateOneadmin: function(req, res){
+        var params = [req.body.adminId,req.body.adminName, req.body.adminpassword];
+        models.updateOneadmin(params, function(err,results) {
+          if (err) {console.log("error updateone at admin controller",err)}
+          console.log(req.body.studentId)
+          res.send('admin updated')
+        });
+
+       
+} 
+
        
 } 

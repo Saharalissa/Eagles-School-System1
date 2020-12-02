@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import editAdmin from './editAdmin.component';
 //creating component to fill table rows
 const Admin = (props) => (
     <tr>
@@ -9,7 +9,7 @@ const Admin = (props) => (
     <td>{props.admin.adminName}</td>
     <td>{props.admin.adminPassword}</td>
      <td>
-      <Link to={"/edit/"+props.admin.adminId}>edit</Link> 
+      <Link to={"/updateadmin/"+props.admin.adminId}>edit</Link> 
     </td>
     <td>
        <a href="#" onClick={() => { props.deleteadmin(props.admin.adminId) }}>delete</a>
@@ -24,17 +24,7 @@ export default class AdminList extends Component {
         this.state = {admins: []}
         this.deleteAdmin = this.deleteAdmin.bind(this)
     }
-    //this function is to get all data from database when we open the page
-    componentDidMount() {
-        axios.get('/getAlladmin')
-          .then(response => {
-            this.setState({ admins: response.data })
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-        }
-
+  
         //function to delete one admin depending on adminId
       deleteAdmin(id) {
         axios.delete('/deleteOneadmin/'+id)
@@ -45,12 +35,32 @@ export default class AdminList extends Component {
         })
       };
 
+    
+
       //this is to list data one by one to create admin component for every admin 
     adminsList() {
         return this.state.admins.map(currentadmin => {
           return <Admin admin={currentadmin} deleteadmin={this.deleteAdmin} key={currentadmin.adminId}/>;
      })
     }
+
+      //this function is to get all data from database when we open the page
+
+      retrieveData() {
+        axios.get('/getAlladmin')
+        .then(response => {
+          this.setState({ admins: response.data })
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+
+      }
+      componentDidMount() {
+        this.retrieveData();
+       
+        }
+
     
     render() {
         return (

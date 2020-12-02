@@ -62,8 +62,12 @@ export default class CreateStudent extends Component {
               },
               headers : {'Content-Type': 'multipart/form-data'}
             });
-
+      //for take the user to the home after submite the form
+    //we need to uncomment this line
+    // window.location = '/';
     }
+
+    
 
       
     render(){
