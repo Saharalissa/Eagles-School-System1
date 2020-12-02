@@ -1,8 +1,10 @@
 import React ,{Component} from 'react';
 import axios from 'axios';
+import AdminList from './adminList.component'
 
-//edit admin component
-export default class editAdmin extends Component {
+
+//creating admin component
+export default class EditAdmin extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -16,33 +18,36 @@ export default class editAdmin extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
     }
-    
-    //function to handle all input fields
-    changeFormHandle(e){
-        const target =e.target;
-        const value = target.value
-        const name = target.name;
-        //[name] will change according to eachh input depending on each name of input
-        this.setState({
-         [name] : value
-        })
-    }
+
+
 
     componentDidMount(){
+        console.log(this.props.match.params.adminId);
         axios.get('/getOneadmin/'+this.props.match.params.adminId)
         .then(response =>{
             this.setState({
                 adminName : response.data.adminName,
                 adminpassowrd: response.data.adminpassowrd,
                 userType : response.data.userType
-              
             })
         })
         .catch(function(error){
             console.log(error);
         })
+    }
 
-
+   
+    
+    //function to handle alll input fields
+    changeFormHandle(e){
+        const target =e.target;
+        const value = target.value
+        const name = target.name;
+        //[name] will change according to eachh input depending on each name of input
+        this.setState({
+         [name] : value,
+         admins :[]
+        })
     }
 
     //function to submit form
@@ -55,10 +60,17 @@ export default class editAdmin extends Component {
           }
       
           console.log(users);
-          axios.put('/updateOneadmin'+this.props.match.params.adminId,users)
+          axios.put('/updateOneadmin/'+this.props.match.params.adminId,users)
           .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
+
+        //   this.retrieveData();
+
+          //for take the user to the home after submite the form
+    //we need to uncomment this line
+    // window.location = '/';
     }
+
     render(){
         return (
         <div>
@@ -107,7 +119,7 @@ export default class editAdmin extends Component {
                 </select>
         </div>
               <div className="form-group">
-                <input type="submit" value="Edit Admin" className="btn btn-primary" />
+                <input type="submit" value="Update Admin" className="btn btn-primary" />
               </div>
             </form>
           </div>
