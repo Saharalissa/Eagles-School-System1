@@ -19,17 +19,17 @@ module.exports = {
        },
 
   //Create new student
-       create: function (req, res) {
+  createstudent: function (req, res) {
           
-        //    console.log(req.body,'req.body')
-        var params =[req.body.studentName,req.body.studentpassword];
-        console.log(req.body.studentName,"create")
-        models.create(params, function(err, results) {
-          if (err) { console.log("error post at student controller",err) }
-          res.sendStatus(200)
-          
-        });
-      },
+    //    console.log(req.body,'req.body')
+    var params =[req.body.studentName,req.body.studentpassword];
+    console.log(req.body.studentName,"createstudent")
+    models.createstudent(params, function(err, results) {
+      if (err) { console.log("error post at student controller",err) }
+      res.sendStatus(200)
+      
+    });
+  },
        
     //Delete one student
       deleteOne: function(req,res){

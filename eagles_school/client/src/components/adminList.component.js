@@ -37,7 +37,7 @@ export default class AdminList extends Component {
 
         //function to delete one admin depending on adminId
       deleteAdmin(id) {
-        axios.delete('/deleteOneadmin/:'+id)
+        axios.delete('/deleteOneadmin/'+id)
           .then(response => { console.log(response.data)});
     
         this.setState({
@@ -48,7 +48,7 @@ export default class AdminList extends Component {
       //this is to list data one by one to create admin component for every admin 
     adminsList() {
         return this.state.admins.map(currentadmin => {
-          return <Admin admin={currentadmin} deleteadmin={this.deleteadmin} key={currentadmin.adminId}/>;
+          return <Admin admin={currentadmin} deleteadmin={this.deleteAdmin} key={currentadmin.adminId}/>;
      })
     }
     

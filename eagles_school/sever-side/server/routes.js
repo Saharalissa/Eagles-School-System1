@@ -10,7 +10,7 @@ var body = require('body-parser');
 router.get('/getAll', controller.students.getAll);
 console.log('router');
 router.get('/getOne/:id', controller.students.getOne);
-router.post('/create/student', controller.students.create);
+router.post('/create/student', controller.students.createstudent);
 router.delete('/deleteOne/:id', controller.students.deleteOne);
 
 /*Admin table routes*/

@@ -23,7 +23,7 @@ module.exports = {
         var params =[req.body.adminName,req.body.adminpassword];
         console.log(req.body.adminName,"create")
         models.createadmin(params, function(err, results) {
-          if (err) { console.log("error post at student controller",err) }
+          if (err) { console.log("error post at admin controller",err) }
           res.sendStatus(200)
           
         });

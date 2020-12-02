@@ -1,4 +1,4 @@
-var db = require('../database');
+var db = require('../database')
 var routs = require('../../server/routes');
 
 module.exports= {
@@ -12,7 +12,7 @@ module.exports= {
     
     },
 
-    create:(params,callback) =>{
+    createstudent:(params,callback) =>{
         var queryStr = `insert into students(studentName,studentpassword) values (?,?)`;
          db.query(queryStr,params,function(err,results){
              callback(err,results)
