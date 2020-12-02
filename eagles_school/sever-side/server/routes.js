@@ -10,13 +10,13 @@ var body = require('body-parser');
 router.get('/getAll', controller.students.getAll);
 console.log('router');
 router.get('/getOne/:id', controller.students.getOne);
-router.post('/create', controller.students.create);
+router.post('/create/student', controller.students.create);
 router.delete('/deleteOne/:id', controller.students.deleteOne);
 
 /*Admin table routes*/
 router.get('/getAlladmin', controller.admin.getAlladmin);
 router.get('/getOneadmin/:id', controller.admin.getOneadmin);
-router.post('/createadmin', controller.admin.createadmin);
+router.post('/create/admin', controller.admin.createadmin);
 router.delete('/deleteOneadmin/:id', controller.admin.deleteOneadmin);
 
 //mark table routes

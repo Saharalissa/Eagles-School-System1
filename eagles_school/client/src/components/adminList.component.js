@@ -26,18 +26,18 @@ export default class AdminList extends Component {
     }
     //this function is to get all data from database when we open the page
     componentDidMount() {
-        // axios.get('/admins/')
-        //   .then(response => {
-        //     this.setState({ admins: response.data })
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   })
+        axios.get('/getAlladmin')
+          .then(response => {
+            this.setState({ admins: response.data })
+          })
+          .catch((error) => {
+            console.log(error);
+          })
         }
 
         //function to delete one admin depending on adminId
       deleteAdmin(id) {
-        axios.delete('/admins/'+id)
+        axios.delete('/deleteOneadmin/:'+id)
           .then(response => { console.log(response.data)});
     
         this.setState({

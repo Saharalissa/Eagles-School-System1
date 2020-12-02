@@ -54,7 +54,7 @@ export default class CreateStudent extends Component {
         //   .catch((err) => console.log(err));
           axios({
               method : 'post',
-              url :'/create',
+              url :'/create/student',
               data :{
                 studentName: this.state.studentName,
                 studentpassword: this.state.studentpassword,
@@ -64,6 +64,8 @@ export default class CreateStudent extends Component {
             });
 
     }
+
+      
     render(){
         return (
             <div>

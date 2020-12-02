@@ -28,19 +28,19 @@ export default class StudentList extends Component {
     //this function is to get all data from database when we open the page
     componentDidMount() {
 
-        // axios.get('/students/')
-        //   .then(response => {
-        //     this.setState({ students: response.data })
-        //   })
-        //   .catch((error) => {
-        //     this.setState({ students: studentsMock })
-        //     // console.log(error);
-        //   })
+        axios.get('/getAll')
+          .then(response => {
+            this.setState({ students: response.data })
+          })
+          .catch((error) => {
+            // this.setState({ students: studentsMock })
+            console.log(error);
+          })
         }
 
         //function to delete one student depending on studentId
     deleteStudent(id) {
-        axios.delete('/students/'+id)
+        axios.delete('/deleteOne/:'+id)
           .then(response => { console.log(response.data)});
     
         this.setState({

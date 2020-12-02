@@ -8,7 +8,7 @@ export default class CreateAdmin extends Component {
         super(props);
         this.state={
             adminName :'',
-            password : '',
+            adminpassword : '',
             userType :'',
             users :[]
         }
@@ -34,14 +34,14 @@ export default class CreateAdmin extends Component {
         e.preventDefault();
         const users = {
             adminName: this.state.adminName,
-            password: this.state.password,
+            adminpassword: this.state.adminpassword,
             userType: this.state.userType,
           }
       
           console.log(users);
-        //   axios.post('/createadmin',users)
-        //   .then((res) => console.log(res.data))
-        //   .catch((err) => console.log(err));
+          axios.post('/create/admin',users)
+          .then((res) => console.log(res.data))
+          .catch((err) => console.log(err));
     }
     render(){
         return (
@@ -63,9 +63,9 @@ export default class CreateAdmin extends Component {
                 <label>Passowrd: </label>
                 <input  type="passowrd"
                     required
-                    name='password'
+                    name='adminpassword'
                     className="form-control"
-                    value={this.state.passowrd}
+                    value={this.state.adminpassowrd}
                     onChange={this.changeFormHandle}
                     />
               </div>

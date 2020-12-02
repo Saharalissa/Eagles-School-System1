@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     // port : '3307',
     host:  '127.0.0.1',
     user : 'root',
-    password : '12345678',
+    password : '',
     multipleStatements : 'true',
 
 });
@@ -46,7 +46,7 @@ db.connect(function(err) {
     
 
     let myAdmin = `CREATE TABLE IF NOT EXISTS myAdmin
-    (adminId INT(10) AUTO_INCREMENT  NOT NULL AUTO_INCREMENT,
+    (adminId INT(10) NOT NULL AUTO_INCREMENT,
      adminName VARCHAR(30) NOT NULL,
      adminpassword VARCHAR(50) NOT NULL,
      PRIMARY KEY (adminId)

@@ -13,7 +13,7 @@ module.exports= {
     },
 
     create:(params,callback) =>{
-        var queryStr = `insert into students(studentName,studentPassword) values (?,?)`;
+        var queryStr = `insert into students(studentName,studentpassword) values (?,?)`;
          db.query(queryStr,params,function(err,results){
              callback(err,results)
          });
