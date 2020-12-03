@@ -21,6 +21,7 @@ router.get('/getOneadmin/:id', controller.admin.getOneadmin);
 router.post('/create/admin', controller.admin.createadmin);
 router.delete('/deleteOneadmin/:id', controller.admin.deleteOneadmin);
 router.put('/updateOneadmin/:id', controller.students.updateOne);
+router.post('/login', controller.admin.login);
 
 
 
